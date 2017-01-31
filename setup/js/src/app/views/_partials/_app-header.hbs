@@ -1,0 +1,27 @@
+<div class="app-header">
+    <div class="container">
+        <div class="top-line">
+            <div class="logo">
+                <img src="https://unsplash.it/200/50" alt="Logo" />
+            </div>
+            <div class="fullsize-menu">
+                {{> nav-menu}}
+            </div>
+            <div class="menu-icon">
+                <div class="expand-mobile-menu">
+                    <div class="hamburger">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mobile-menu">
+        <div class="mobile-cancel">
+            {{> svg-close-icon}}
+        </div>
+        {{> nav-menu}}
+    </div>
+</div>

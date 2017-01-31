@@ -1,0 +1,27 @@
+/********************/
+/* Global variables */
+/********************/
+@appFullSizeWidth: 768px;
+@appHeaderHeight: 80px;
+
+
+// App container
+body > .app {
+    /*********************/
+    /* Private variables */
+    /*********************/
+
+
+    /**********/
+    /* Styles */
+    /**********/
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: @appHeaderHeight + 20px;
+
+    .app-header ~ .container {
+        flex: 1;
+    }
+
+}

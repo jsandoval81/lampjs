@@ -1,0 +1,143 @@
+//===================
+//= Pulse animation =
+//===================
+@-webkit-keyframes pulse {
+    0% { -webkit-transform: scale(1); }
+    50% { -webkit-transform: scale(1.1); }
+    100% { -webkit-transform: scale(1); }
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+// Utility class
+.pulse {
+    @duration: 1.5s;
+    @count: infinite;
+    -webkit-animation-name: pulse;
+    -webkit-animation-duration: @duration;
+    -webkit-animation-iteration-count: @count;
+    animation-name: pulse;
+    animation-duration: @duration;
+    animation-iteration-count: @count;
+}
+
+//====================
+//= Bounce animation =
+//====================
+@-webkit-keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}
+    40% {-webkit-transform: translateY(-30px);}
+    60% {-webkit-transform: translateY(-15px);}
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-30px);}
+    60% {transform: translateY(-15px);}
+}
+// Utility class
+.bounce {
+    @duration: 1.5s;
+    @count: infinite;
+    -webkit-animation-name: bounce;
+    -webkit-animation-duration: @duration;
+    -webkit-animation-iteration-count: @count;
+    animation-name: bounce;
+    animation-duration: @duration;
+    animation-iteration-count: @count;
+}
+
+//=====================
+//= Fade In animation =
+//=====================
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+// Utility class
+.fadeIn {
+    @duration: 1.5s;
+    @count: infinite;
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-duration: @duration;
+    -webkit-animation-iteration-count: @count;
+    animation-name: fadeIn;
+    animation-duration: @duration;
+    animation-iteration-count: @count;
+}
+
+//======================
+//= Fade Out animation =
+//======================
+@-webkit-keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+@keyframes fadeOut{
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+// Utility class
+.fadeOut {
+    @duration: 1.5s;
+    @count: infinite;
+    -webkit-animation-name: fadeOut;
+    -webkit-animation-duration: @duration;
+    -webkit-animation-iteration-count: @count;
+    animation-name: fadeOut;
+    animation-duration: @duration;
+    animation-iteration-count: @count;
+}
+
+//===================
+//= Flash animation =
+//===================
+@-webkit-keyframes flash {
+    0%, 50%, 100% {opacity: 1;}
+    25%, 75% {opacity: 0;}
+}
+@keyframes flash {
+    0%, 50%, 100% {opacity: 1;}
+    25%, 75% {opacity: 0;}
+}
+// Utility class
+.flash {
+    @duration: 1.5s;
+    @count: infinite;
+    -webkit-animation-name: flash;
+    -webkit-animation-duration: @duration;
+    -webkit-animation-iteration-count: @count;
+    animation-name: flash;
+    animation-duration: @duration;
+    animation-iteration-count: @count;
+}
+
+//===================
+//= Shake animation =
+//===================
+@-webkit-keyframes shake {
+    0%, 100% {-webkit-transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {-webkit-transform: translateX(-10px);}
+    20%, 40%, 60%, 80% {-webkit-transform: translateX(10px);}
+}
+@keyframes shake {
+    0%, 100% {transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
+    20%, 40%, 60%, 80% {transform: translateX(10px);}
+}
+// Utility class
+.shake {
+    @duration: 1.5s;
+    @count: infinite;
+    -webkit-animation-name: shake;
+    -webkit-animation-duration: @duration;
+    -webkit-animation-iteration-count: @count;
+    animation-name: shake;
+    animation-duration: @duration;
+    animation-iteration-count: @count;
+}

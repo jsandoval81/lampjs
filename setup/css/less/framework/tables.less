@@ -1,0 +1,82 @@
+/**************************/
+/* Table global variables */
+/**************************/
+
+
+// Table container
+table {
+    /***************************/
+    /* Table private variables */
+    /***************************/
+    @tableMargin: 20px 0;
+    @tableHeaderBGColor: @grey;
+    @tableHeaderFontSize: @fontSizeSmall;
+    @tableHeaderFontColor: @lightGrey;
+    @tableBorder: 1px solid @grey;
+    @tableBorderRadius: 5px;
+
+    /****************/
+    /* Table styles */
+    /****************/
+    margin: @tableMargin;
+    width: 90%;
+    border: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    thead {
+        background-color: @tableHeaderBGColor;
+
+        th, th:first-child, th:last-child {
+            padding: 10px 10px;
+            border: 0;
+            font-size: @tableHeaderFontSize;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: @tableHeaderFontColor;
+            text-align: left;
+            text-transform: uppercase;
+        }
+        th:first-child {
+            border-top-left-radius: @tableBorderRadius;
+        }
+        th:last-child {
+            border-top-right-radius: @tableBorderRadius;
+        }
+    }
+
+    tbody:not(.main) {
+        display: none;
+    }
+
+    tbody.main {
+
+        tr {
+            background-color: @white;
+
+            &:last-child {
+                td:first-child {
+
+                    border-bottom-left-radius: @tableBorderRadius;
+                }
+                td:last-child {
+                    border-right: @tableBorder;
+                    border-bottom-right-radius: @tableBorderRadius;
+                }
+            }
+        }
+
+        td, td:first-child, td:last-child {
+            vertical-align: top;
+            padding: 5px 10px;
+            font-weight: 400;
+            border-bottom: @tableBorder;
+        }
+        td:first-child {
+             border-left: @tableBorder;
+        }
+        td:last-child {
+            border-right: @tableBorder;
+        }
+    }
+}

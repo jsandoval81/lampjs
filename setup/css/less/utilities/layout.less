@@ -1,0 +1,67 @@
+// Standard clear (see clearfix.less mixin for clearfix)
+.clear {
+	clear: both;
+}
+
+/* Container that will divide contents in equal halves horizontally */
+.halves {
+    // Apply the clearfix mixin
+    .clearfix();
+
+    > div {
+        float: left;
+        margin-left: 4%;
+        width: 48%;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}
+
+/* Container that will divide contents in equal thirds horizontally */
+.thirds {
+    // Apply the clearfix mixin
+    .clearfix();
+
+    > div {
+        float: left;
+        margin-left: 2%;
+        width: 32%;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        /* Allow a child container to span 2 columns/thirds */
+        &.col-2 {
+            width: 66%;
+        }
+    }
+}
+
+/* Container that will divide contents in equal fourths horizontally */
+.fourths {
+    // Apply the clearfix mixin
+    .clearfix();
+
+    > div {
+        float: left;
+        margin-left: 1%;
+        width: 24%;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        /* Allow a child container to span 2 columns */
+        &.col-2 {
+            width: 49%;
+        }
+
+        /* Allow a child container to span 3 columns */
+        &.col-3 {
+            width: 74%;
+        }
+    }
+}

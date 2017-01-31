@@ -1,0 +1,94 @@
+{
+    "appHeaderData": {
+        "isUserSignedIn": false,
+        "userName": null
+    },
+    "nextLiveCleanseDate": "2016-10-07",
+    "howItWorks": [
+        {
+            "img": "/images/samples/800x300.jpg",
+            "text": "Text under slideshow image supports the image and slides should show the tools, how the web app works."
+        },
+        {
+            "img": "/images/samples/799x300.jpg",
+            "text": "Description"
+        },
+        {
+            "img": "/images/samples/798x300.jpg",
+            "text": "Text under slideshow image supports the image and slides should show the tools, how the web app works."
+        },
+        {
+            "img": "/images/samples/797x300.jpg",
+            "text": "Description"
+        },
+        {
+            "img": "/images/samples/796x300.jpg",
+            "text": "Text under slideshow image supports the image and slides should show the tools, how the web app works."
+        }
+    ],
+    "pricePlans": [
+        {
+            "id": 1,
+            "title": "One-time cleanser",
+            "cost": "$199.00",
+            "recurrence": "One-time payment",
+            "bullets": [
+                "Access for 30 days - enough time to one cleanse and two weeks of 80/20.",
+                "After 30 days you can renew or become a member through a subscription plan."
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Subscription Plan",
+            "cost": "$29.00",
+            "recurrence": "Monthly",
+            "bullets": [
+                "Unlimited access to all features as long as you are a member."
+            ]
+        }
+    ],
+    "testamonials": [
+        {
+            "img": "/images/samples/103x100.jpg",
+            "quote": "I truly never felt better than after completing your 14-day cleanse and it has become my everyday guideline for healthy eating",
+            "author": "Kate B."
+        },
+        {
+            "img": "/images/samples/102x100.jpg",
+            "quote": "Ditto",
+            "author": "Kate C."
+        },
+        {
+            "img": "/images/samples/101x100.jpg",
+            "quote": "I also truly never felt better than after completing your 14-day cleanse and it has become my everyday guideline for healthy eating",
+            "author": "Kate D."
+        }
+    ],
+    "siteTools": [
+        {
+            "img": "/images/samples/403x300.jpg",
+            "title": "Title 1",
+            "text": "Text under slideshow image supports the image and slides should show the tools, how the web app works."
+        },
+        {
+            "img": "/images/samples/402x300.jpg",
+            "title": "Title 2",
+            "text": "Description"
+        },
+        {
+            "img": "/images/samples/401x300.jpg",
+            "title": "Title 3",
+            "text": "Text under slideshow image supports the image and slides should show the tools, how the web app works."
+        },
+        {
+            "img": "/images/samples/400x300.jpg",
+            "title": "Title 4",
+            "text": "Description"
+        },
+        {
+            "img": "/images/samples/399x300.jpg",
+            "title": "Title 5",
+            "text": "Text under slideshow image supports the image and slides should show the tools, how the web app works."
+        }
+    ]
+}

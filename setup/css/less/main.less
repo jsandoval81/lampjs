@@ -1,0 +1,51 @@
+//@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+/******************/
+/* Vendor modules */
+/******************/
+@import (inline) '../vendor/normalize.css';
+@import (inline) '../vendor/skeleton.css';
+
+/*******************************/
+/* Variable definition modules */
+/*******************************/
+@import 'variables/sizes.less';
+@import 'variables/colors.less';
+@import 'variables/fonts.less';
+
+/*********************/
+/* CSS reset modules */
+/*********************/
+@import 'resets/application.less';
+@import 'resets/helpers.less';
+
+/**********************/
+/* LESS Mixin modules */
+/**********************/
+@import 'mixins/clearfix.less';
+@import 'mixins/gradients.less';
+@import 'mixins/effects.less';
+
+/******************/
+/* Utilty modules */
+/******************/
+@import 'utilities/layout.less';
+@import 'utilities/alignment.less';
+@import 'utilities/animation.less';
+
+/*********************************/
+/* Application framework modules */
+/*********************************/
+@import 'framework/app.less';
+@import 'framework/header.less';
+@import 'framework/messages.less';
+@import 'framework/forms.less';
+@import 'framework/buttons.less';
+@import 'framework/tables.less';
+@import 'framework/footer.less';
+@import 'framework/modal.less';
+
+/*******************************/
+/* Application content modules */
+/*******************************/
+@import 'application/**/*.less';

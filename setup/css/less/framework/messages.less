@@ -1,0 +1,83 @@
+/********************/
+/* Global variables */
+/********************/
+
+
+
+// Alert boxes
+.alert {
+    @alertBorderColor: @blue;
+    @alertBGColor: fadeout(@blue, 80%);
+    @alertFontColor: @blue;
+
+    margin: 10px 0;
+    padding: 10px;
+    width: 90%;
+    border: 1px solid @alertBorderColor;
+    border-radius: 5px;
+    background-color: @alertBGColor;
+    color: @alertFontColor;
+}
+
+// Description text
+.description {
+    padding: 5px 0;
+    font-size: @fontSizeSmall;
+}
+
+//
+// OG drop-down alerts
+.slideDownAlert {
+	display: none;
+	color: #fff;
+	text-align: center;
+	position: fixed;
+	width: 100%;
+	padding: 20px 0;
+	font-weight: 300;
+	font-size: 20px;
+	box-shadow: 0 1px 2px #666;
+}
+
+.slideDownAlert.success {
+	background: #bada55;
+	z-index: 998;
+}
+
+.slideDownAlert.error {
+	background: red;
+	z-index: 999;
+}
+
+//
+// OG Success Messages
+.body.success h3 {
+	font-size: 20px;
+	font-weight: 400;
+	text-align: center;
+}
+
+.body.success a.save {
+	background: #bada55;
+	text-align: center;
+	border:none;
+	font-size: 14px;
+	color: #fff;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	padding: 8px 20px;
+	font-family: 'Open Sans', sans-serif;
+	cursor: pointer;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	display: inline-block;
+	margin: 20px 0;
+}
+
+.body.success a.save:hover {
+	background: #ddd;
+	color: #fff;
+}

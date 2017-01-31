@@ -1,0 +1,36 @@
+
+/**
+ * Cross-browser gradient that is base-color at the top and fades to the bottom
+ */
+.oneSidedVerticalGradient (@start, @end) {
+    background: @start;
+    background: -moz-linear-gradient(top, @start 0%, @end 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, @start 0%, @end 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, @start 0%, @end 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@start, endColorstr=@end,GradientType=0 ); /* IE6-9 */
+}
+
+/**
+ * Cross-browser gradient that is base color on the left and and fades to the right
+ */
+.oneSidedHorizontalGradient(@start, @end) {
+    background: @start;
+    background: -moz-linear-gradient(left, @start 0%, @end 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, @start 0%, @end 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, @start 0%, @end 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@start, endColorstr=@end,GradientType=1 ); /* IE6-9 */
+}
+
+/**
+ * Cross-browser gradient that is base-color in the middle and fades to the outsides
+ */
+.twoSidedHorizontalGradient (@baseHex, @red, @green, @blue) {
+    background: @baseHex;
+    /* FF3.6+ */               background: -moz-linear-gradient(left, rgba(@red,@green,@blue,0) 15%, rgba(@red,@green,@blue,0.62) 42%, rgba(@red,@green,@blue,0.8) 50%, rgba(@red,@green,@blue,0.62) 58%, rgba(@red,@green,@blue,0) 85%);
+    /* Chrome,Safari4+ */      background: -webkit-gradient(linear, left top, right top, color-stop(15%,rgba(@red,@green,@blue,0)), color-stop(42%,rgba(@red,@green,@blue,0.62)), color-stop(50%,rgba(@red,@green,@blue,0.8)), color-stop(58%,rgba(@red,@green,@blue,0.62)), color-stop(85%,rgba(@red,@green,@blue,0)));
+    /* Chrome10+,Safari5.1+ */ background: -webkit-linear-gradient(left, rgba(@red,@green,@blue,0) 15%,rgba(@red,@green,@blue,0.62) 42%,rgba(@red,@green,@blue,0.8) 50%,rgba(@red,@green,@blue,0.62) 58%,rgba(@red,@green,@blue,0) 85%);
+    /* Opera 11.10+ */         background: -o-linear-gradient(left, rgba(@red,@green,@blue,0) 15%,rgba(@red,@green,@blue,0.62) 42%,rgba(@red,@green,@blue,0.8) 50%,rgba(@red,@green,@blue,0.62) 58%,rgba(@red,@green,@blue,0) 85%);
+    /* IE10+ */                background: -ms-linear-gradient(left, rgba(@red,@green,@blue,0) 15%,rgba(@red,@green,@blue,0.62) 42%,rgba(@red,@green,@blue,0.8) 50%,rgba(@red,@green,@blue,0.62) 58%,rgba(@red,@green,@blue,0) 85%);
+    /* W3C */                  background: linear-gradient(to right, rgba(@red,@green,@blue,0) 15%,rgba(@red,@green,@blue,0.62) 42%,rgba(@red,@green,@blue,0.8) 50%,rgba(@red,@green,@blue,0.62) 58%,rgba(@red,@green,@blue,0) 85%);
+    /* IE6-9 */                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@baseHex, endColorstr=@baseHex,GradientType=1 );
+}
