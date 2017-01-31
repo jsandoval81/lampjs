@@ -1,0 +1,172 @@
+/***************************/
+/* Header global variables */
+/***************************/
+@fullSizeMenuScreen: @appFullSizeWidth;
+@topMenuHeight: @appHeaderHeight;
+@topMenuZIndex: 900;
+
+// App header container
+.app-header {
+    /****************************/
+    /* Header private variables */
+    /****************************/
+    // Background
+    @backgroundColor: @white;
+    // Links
+    @linkColor: @midGrey;
+    @linkColorHover: @darkGrey;
+    @linkColorActive: @darkGrey;
+    @linkActiveBorderWidth: 4px;
+    @linkBorderColor: @darkGrey;
+
+    /*****************/
+    /* Header styles */
+    /*****************/
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    height: @topMenuHeight;
+    background-color: @backgroundColor;
+    border-bottom: 1px solid @lightGrey;
+    z-index: @topMenuZIndex;
+
+    .top-line {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: hidden;
+
+        .logo {
+            @logoHeight: 50px;
+
+            flex-basis: ~"calc(100% - 40px)";
+            height: @topMenuHeight;
+
+            @media (min-width: @fullSizeMenuScreen) {
+                flex-basis: 20%;
+            }
+
+            img {
+                display: inline-block;
+                height: @logoHeight;
+                width: auto;
+                padding: ((@topMenuHeight * 0.3 ) / 2) 0;
+            }
+        }
+
+        .fullsize-menu {
+            display: none;
+            flex-basis: 80%;
+            justify-content: flex-end;
+            align-items: center;
+
+            @media (min-width: @fullSizeMenuScreen) {
+                display: flex;
+            }
+
+            ul {
+                display: flex;
+                list-style: none;
+                margin: 0;
+
+                li {
+                    margin: 0;
+                    padding: 0 10px;
+                }
+            }
+        }
+
+        .menu-icon {
+            display: flex;
+            flex-basis: 40px;
+            align-items: center;
+            justify-content: flex-end;
+
+            .expand-mobile-menu {
+                float: right;
+                width: 100%;
+                text-align: right;
+
+                @media(min-width: @fullSizeMenuScreen) {
+                    display: none;
+                }
+
+                .hamburger {
+                    height: 25px;
+                    max-width: 25px;
+                    margin-left: auto;
+                    cursor: pointer;
+
+                    & > div {
+                        width: 100%;
+                        height: 16%;
+                        border-radius: 5px;
+                        background-color: @midGrey;
+
+                        &:not(:first-child) {
+                            margin-top: 20%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .mobile-menu {
+        @navWidth: 225px;
+        @navMenuBGColor: @midBlue;
+        @navMenuFontColor: @white;
+
+        position: absolute;
+        top: 0;
+        right: -@navWidth;
+        width: @navWidth;
+        height: auto;
+        max-height: 500px;
+        margin: 0;
+        padding-bottom: 20px;
+        background-color: @navMenuBGColor;
+        color: @navMenuFontColor;
+
+        .mobile-cancel {
+            height: 40px;
+            padding: 10px 10px 0 0;
+            text-align: right;
+
+            .close {
+                width: 30px;
+                height: 30px;
+                fill: @darkBlue;
+                cursor: pointer;
+            }
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+
+            li {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0 0 6px 12px;
+                text-transform: uppercase;
+
+                a {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    color: @navMenuFontColor;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: @linkColorHover;
+                    }
+                }
+            }
+        }
+    }
+
+}

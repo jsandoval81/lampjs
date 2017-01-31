@@ -1,0 +1,181 @@
+/**
+ * Standard button mixin styling. Provides a small variety of
+ * built-in button types using a small class hierarchy. Any inline
+ * element can made a button via the .btn class. From there you can build
+ * additional style with .btn-alert, .btn-large, etc.
+ *
+ * There is still some work to do to make this bulletproof, but it provides
+ * an easy-to-use abstraction that is easily customized.
+ */
+
+/***************************/
+/* Button global variables */
+/***************************/
+@buttonBorderWidth: 1px;
+@buttonBorderRadius: 0;
+@buttonLineHeight: 1.5;
+
+// Button class (mixin)
+.button () {
+    /****************************/
+    /* Button private variables */
+    /****************************/
+    // Default size
+    @buttonDefaultPadding: 10px 40px;
+    @buttonDefaultFontSize: @fontSize;
+    // Large
+    @buttonLargePadding: 10px 80px;
+    @buttonLargeFontSize: @fontSize;
+    // Small
+    @buttonSmallPadding: 10px 20px;
+    @buttonSmallFontSize: @fontSizeSmall;
+
+    // Default colors (unspecified type)
+    @buttonDefaultBGColor: @blue;
+    @buttonDefaultFontColor: @white;
+    // Primary colors
+    @buttonPrimaryBGColor: @blue;
+    @buttonPrimaryFontColor: @white;
+    // Alert colors
+    @buttonAlertBGColor: @red;
+    @buttonAlertFontColor: @white;
+    // Cancel colors
+    @buttonCancelBGColor: @grey;
+    @buttonCancelFontColor: @white;
+
+    /*****************/
+    /* Button styles */
+    /*****************/
+    // Default attributes
+    margin-bottom: 5px;
+    padding: @buttonDefaultPadding;
+    line-height: @buttonLineHeight;
+    font-size: @buttonDefaultFontSize;
+    border-radius: @buttonBorderRadius;
+    cursor: pointer;
+    .transition(all, .2s);
+    .fill-button(@buttonDefaultBGColor, @buttonDefaultFontColor);
+    .ghost-button(@buttonDefaultFontColor);
+    .ghost-fill-button(@buttonDefaultFontColor, @white);
+
+    // Sizes
+    &.btn-large {
+        padding: @buttonLargePadding;
+        font-size: @buttonLargeFontSize;
+    }
+    &.btn-small {
+        padding: @buttonSmallPadding;
+        font-size: @buttonSmallFontSize;
+    }
+
+    // Color types
+    &.btn-primary {
+        .fill-button(@buttonPrimaryBGColor, @buttonPrimaryFontColor);
+        .ghost-button(@buttonPrimaryBGColor);
+        .ghost-fill-button(@buttonPrimaryBGColor, @buttonPrimaryFontColor);
+    }
+    &.btn-alert {
+        .fill-button(@buttonAlertBGColor, @buttonAlertFontColor);
+        .ghost-button(@buttonAlertBGColor);
+        .ghost-fill-button(@buttonAlertBGColor, @buttonAlertFontColor);
+    }
+    &.btn-cancel {
+        .fill-button(@buttonCancelBGColor, @buttonCancelFontColor);
+        .ghost-button(@buttonCancelBGColor);
+        .ghost-fill-button(@buttonCancelBGColor, @buttonCancelFontColor);
+    }
+
+    &.btn-facebook {
+        .fill-button(@facebookBG, @buttonDefaultFontColor);
+        .ghost-button(@facebookBG);
+        .ghost-fill-button(@facebookBG, @buttonDefaultFontColor);
+    }
+
+    /*****************/
+    /* Button mixins */
+    /*****************/
+    // Create the standard fill button
+    .fill-button (@buttonBGColor, @buttonFontColor) {
+        // Standard fill
+        border: @buttonBorderWidth solid @buttonBGColor;
+        background-color: @buttonBGColor;
+        color: @buttonFontColor;
+        .anchor-override(@buttonFontColor);
+
+        &:hover {
+            border-color: darken(@buttonBGColor, 8%);
+            background-color: darken(@buttonBGColor, 8%);
+        }
+    }
+
+    // Create the ghost button
+    .ghost-button (@buttonFontColor) {
+        &.btn-ghost {
+            border-color: @buttonFontColor;
+            background-color: transparent;
+            color: @buttonFontColor;
+            .anchor-override(@buttonFontColor);
+
+            &:hover {
+                border-color: darken(@buttonFontColor, 8%);
+                //background-color: fadeout(@white, 65%); // Frosted BG
+                color: darken(@buttonFontColor, 8%);
+            }
+        }
+    }
+
+    // Create the ghost-fill button
+    .ghost-fill-button (@buttonFontColor, @buttonBGColor) {
+        &.btn-ghost-fill {
+            border-color: @buttonFontColor;
+            background-color: transparent;
+            color: @buttonFontColor;
+            .anchor-override(@buttonFontColor);
+
+            &:hover {
+                border-color: @buttonFontColor;
+                background-color: @buttonFontColor;
+                color: @buttonBGColor;
+            }
+        }
+    }
+
+    // Anchor element specificity overrides.
+    // Prevents <a> styles from interfering.
+    .anchor-override (@fontColor) {
+        &:link, &:active, &:visited, &:hover {
+            text-decoration: none;
+            color: @fontColor;
+        }
+    }
+
+    // Disabled buttons
+    &:disabled {
+        background-color: @lightGrey;
+        border-color: @lightGrey;
+        &:hover {
+            background-color: @lightGrey;
+            border-color: @lightGrey;
+        }
+    }
+
+}
+
+/********************************************/
+/* Apply button styling to desired elements */
+/********************************************/
+button, input[type="submit"], .btn {
+    .button();
+
+    // Give consecutive buttons a bit of spacing
+    // &:not(:first-of-type) {
+    //     margin-left: 5px;
+    // }
+
+    font-family: @fontFamily;
+}
+
+a.btn {
+    // font-size: @fontSize;
+    // font-family: @fontFamily;
+}

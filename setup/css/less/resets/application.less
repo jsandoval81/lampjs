@@ -1,0 +1,39 @@
+/*********************************************************/
+/* Application-specific Resets                           */
+/*********************************************************/
+html {
+    font-family: @fontFamily;
+    font-weight: 400;
+}
+
+body {
+    background-color: @white;
+    color: @grey;
+}
+
+a,
+a:link,
+a:visited,
+a:active {
+    color: @grey;
+    text-decoration: none;
+    .transition(all, .2s);
+
+    svg {
+        fill: @grey;
+        .transition(all, .2s);
+    }
+
+    &:hover {
+        color: @midBlue;
+
+        svg {
+            fill: @midBlue;
+        }
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 10px;
+    color: @midBlue;
+}

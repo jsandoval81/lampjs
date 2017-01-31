@@ -1,0 +1,12 @@
+/**
+ * A browser fix to allow the containers of floated children to receive a height
+ */
+.clearfix() {
+
+    &:after {
+        content: " ";
+        display: block;
+        height: 0;
+        clear: both;
+    }
+}

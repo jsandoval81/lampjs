@@ -1,0 +1,94 @@
+{
+    "appHeaderData": {
+        "isUserSignedIn": false,
+        "userName": null
+    },
+    "nextLiveCleanseDate": "2016-10-07",
+    "howItWorks": [
+        {
+            "img": "https://unsplash.it/800/300",
+            "text": "Text under slideshow image supports the image and slides should show the tools, how the web app works."
+        },
+        {
+            "img": "https://unsplash.it/799/300",
+            "text": "Description"
+        },
+        {
+            "img": "https://unsplash.it/798/300",
+            "text": "Text under slideshow image supports the image and slides should show the tools, how the web app works."
+        },
+        {
+            "img": "https://unsplash.it/797/300",
+            "text": "Description"
+        },
+        {
+            "img": "https://unsplash.it/796/300",
+            "text": "Text under slideshow image supports the image and slides should show the tools, how the web app works."
+        }
+    ],
+    "pricePlans": [
+        {
+            "id": 1,
+            "title": "One-time cleanser",
+            "cost": "$199.00",
+            "recurrence": "One-time payment",
+            "bullets": [
+                "Access for 30 days - enough time to one cleanse and two weeks of 80/20.",
+                "After 30 days you can renew or become a member through a subscription plan."
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Subscription Plan",
+            "cost": "$29.00",
+            "recurrence": "Monthly",
+            "bullets": [
+                "Unlimited access to all features as long as you are a member."
+            ]
+        }
+    ],
+    "testamonials": [
+        {
+            "img": "https://unsplash.it/103/100",
+            "quote": "I truly never felt better than after completing your 14-day cleanse and it has become my everyday guideline for healthy eating",
+            "author": "Kate B."
+        },
+        {
+            "img": "https://unsplash.it/102/100",
+            "quote": "Ditto",
+            "author": "Kate C."
+        },
+        {
+            "img": "https://unsplash.it/101/100",
+            "quote": "I also truly never felt better than after completing your 14-day cleanse and it has become my everyday guideline for healthy eating",
+            "author": "Kate D."
+        }
+    ],
+    "siteTools": [
+        {
+            "img": "https://unsplash.it/403/300",
+            "title": "Title 1",
+            "text": "Text under slideshow image supports the image and slides should show the tools, how the web app works."
+        },
+        {
+            "img": "https://unsplash.it/402/300",
+            "title": "Title 2",
+            "text": "Description"
+        },
+        {
+            "img": "https://unsplash.it/401/300",
+            "title": "Title 3",
+            "text": "Text under slideshow image supports the image and slides should show the tools, how the web app works."
+        },
+        {
+            "img": "https://unsplash.it/400/300",
+            "title": "Title 4",
+            "text": "Description"
+        },
+        {
+            "img": "https://unsplash.it/399/300",
+            "title": "Title 5",
+            "text": "Text under slideshow image supports the image and slides should show the tools, how the web app works."
+        }
+    ]
+}
