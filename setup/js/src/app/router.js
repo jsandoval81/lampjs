@@ -20,18 +20,67 @@ app.router = (function () {
     /* Private module methods */
     /**************************/
     /**
+     * App Route Definition
+     * @return {Object}
+     */
+    var getRoutes = function () {
+        return {
+            all: [
+                {
+                    path: '/',
+                    view: app.homeSignedOut
+                },
+            ],
+            static: function () {
+                return this.all.filter(function (route) {
+                    return (route.path.indexOf('/*/') === -1);
+                });
+            },
+            dynamic: function () {
+                return this.all.filter(function (route) {
+                    return (route.path.indexOf('/*/') !== -1);
+                });
+            }
+        };
+    };
+
+    /**
      * (Private)
      * Get the view object based on the url path
      * @param  {string} path [url path]
      * @return {Object} view
      */
     var getView = function (path) {
-        var view;
+        var pathSegments = path.split('/'),
+            routes = getRoutes(),
+            view;
 
-        switch (path) {
-            case '/':
-                view = app.homeSignedOut;
-                break;
+        // Try static paths first
+        routes.static().forEach(function (route) {
+            if (route.path === path) {
+                view = route.view;
+            }
+        });
+
+        if (!view) {
+            // Otherwise try dynamic-segment paths
+            routes.dynamic().forEach(function (route) {
+                var routePathSegments = route.path.split('/'),
+                    match;
+
+                if (routePathSegments.length === pathSegments.length) {
+                    routePathSegments.forEach(function (routeSegment, idx) {
+                        if (routeSegment !== '*') {
+                            if (routeSegment !== pathSegments[idx]) {
+                                match = false;
+                            }
+                        }
+                    });
+                    if (match !== false) {
+                        view = route.view;
+                    }
+                }
+            });
         }
 
         return view;

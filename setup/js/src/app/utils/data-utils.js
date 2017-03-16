@@ -76,6 +76,27 @@ app.dataUtils = (function () {
             });
         },
 
+        /**
+         * Async image encode to base64 using the FileReader Web API
+         * @param {File} imageFile
+         * @param {Function} done
+         */
+        base64EncodeImage: function (imageFile, done) {
+            var isImage = (imageFile && imageFile instanceof File),
+                isCallback = (done && typeof done === 'function'),
+                encodingComplete = function () {
+                    fileReader.removeEventListener('load', encodingComplete);
+                    done(fileReader.result);
+                };
+
+            if (isImage && isCallback) {
+                fileReader.addEventListener('load', encodingComplete);
+                fileReader.readAsDataURL(imageFile);
+            } else if (isCallback) {
+                done(undefined);
+            }
+        },
+
     };
 
 })();

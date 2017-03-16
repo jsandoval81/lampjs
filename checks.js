@@ -25,10 +25,10 @@ var getCodeRoutes = function (routerCode) {
     var routes;
 
     esprima.parse(routerCode, { loc: true }).body[0].expression.right.callee.body.body.forEach(function (dec) {
-        if (dec.type === 'VariableDeclaration' && dec.declarations[0].id.name === 'getView') {
+        if (dec.type === 'VariableDeclaration' && dec.declarations[0].id.name === 'getRoutes') {
             dec.declarations[0].init.body.body.forEach(function (block) {
-                if (block.type === 'SwitchStatement') {
-                    routes = block.cases;
+                if (block.type === 'ReturnStatement' && block.argument.properties[0].key.name === 'all') {
+                    routes = block.argument.properties[0].value.elements;
                 }
             });
         }
@@ -60,7 +60,7 @@ var getRoute = function (fileData, path) {
         }
 
         // If we found the route then flag that it exists.
-        if (currentRoute.test.value.toLowerCase() === path.toLowerCase()) {
+        if (currentRoute.properties[0].value.value.toLowerCase() === path.toLowerCase()) {
             route.exists = true;
             keepUpdatingLine = false;
         }

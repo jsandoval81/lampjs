@@ -37,6 +37,76 @@ app.syncRouter = (function () {
         }
     };
 
+    var phpFrameworkPagesLoggedOut = [
+        '/Login/',
+        '/ResetPassword/',
+        '/ResetPassword/Set/'
+    ];
+
+    var phpFrameworkPagesLoggedIn = [
+        '/Account/',
+        '/Account/Verify/*/',
+        '/Admin/',
+        '/Admin/Access/',
+        '/Admin/Access/Edit/*/',
+        '/Admin/Reset/',
+        '/Admin/APIAccess/',
+        '/AppError/',
+        '/Messages/'
+    ];
+
+    /**
+     * (Private)
+     * Determine if a path is a PHP Framework page path
+     * @param  {string}  path
+     * @param  {Array}   phpPaths
+     * @return {Boolean} isPhpPage
+     */
+    var isPhpPage = function (path, phpPaths) {
+        var isPhpPage = false;
+
+        phpPaths.forEach(function (phpPath) {
+            var sharedPath,
+                splatRegex;
+
+            if (phpPath.indexOf('/*/') > -1) {
+                // Match on wildcard path
+                sharedPath = phpPath.replace('/*/', '/');
+                splatRegex = new RegExp('^' + sharedPath);
+                if (path.match(splatRegex)) {
+                    isPhpPage = true;
+                }
+            } else {
+                // Match on exact path
+                if (path === phpPath) {
+                    isPhpPage = true;
+                }
+            }
+        });
+
+        return isPhpPage;
+    };
+
+    /**
+     * (Private)
+     * Helper for detemining if a path is a logged-out PHP page
+     * @param  {string}  path
+     * @return {Boolean}
+     */
+    var isLoggedOutPhpPage = function (path) {
+        return isPhpPage(path, phpFrameworkPagesLoggedOut);
+    };
+
+    /**
+     * (Private)
+     * Helper for detemining if a path is a logged-in PHP page
+     * @param  {string}  path
+     * @return {Boolean}
+     */
+    var isLoggedInPhpPage = function (path) {
+        return isPhpPage(path, phpFrameworkPagesLoggedIn);
+    };
+
     /**************************/
     /* Public/Exposed methods */
     /**************************/
@@ -71,13 +141,21 @@ app.syncRouter = (function () {
             /**
              * (Public)
              * Handle route errors
+             * @param {string} path
              */
-            routeError: function () {
-                // Call the instance router routine
-                instanceRouteError();
-
-                // @TODO:
-                console.warn('No route initializer');
+            routeError: function (path) {
+                if (typeof instanceRouteError === 'function')  {
+                    // Call the instance router routine
+                    instanceRouteError();
+                } else if (path && isLoggedOutPhpPage(path)) {
+                    this.render('phpOnly', { isLoggedIn: false });
+                } else if (path && isLoggedInPhpPage(path)) {
+                    this.render('phpOnly', { isLoggedIn: true });
+                } else {
+                    // Render a generic 404
+                    this.render('404');
+                    console.warn('No route initializer');
+                }
             },
 
             /**

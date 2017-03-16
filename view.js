@@ -66,7 +66,7 @@ module.exports = {
             //////////////////
             // Create Route //
             //////////////////
-            // This updates the actual code of the router.js file.
+            //This updates the actual code of the router.js file.
             var routeTemplate = templates.route;
             // Prep the route code to insert
             routeTemplate = routeTemplate.replace('@@path@@', path);
@@ -113,14 +113,15 @@ module.exports = {
             //////////////////////////
             // Create PHP Route Dir //
             //////////////////////////
-            fs.mkdirSync('../' + path + '/');
+            var phpPath = path.replace('/*', '');
+            fs.mkdirSync('../' + phpPath + '/');
             finishStep('phpDir');
 
             ////////////////////////////
             // Create PHP Route Index //
             ////////////////////////////
             var phpTemplate = templates.php;
-            fs.writeFileSync('../' + path + '/index.php', phpTemplate, { flag: 'wx' });
+            fs.writeFileSync('../' + phpPath + '/index.php', phpTemplate, { flag: 'wx' });
             finishStep('phpIndex');
         }
 
@@ -180,7 +181,7 @@ module.exports = {
                 // Split the router file
                 fileLines = fs.readFileSync('./src/app/router.js').toString().split('\n');
                 // Remove the code lines in the parsed array
-                fileLines.splice(route.removeLine - 1, 3);
+                fileLines.splice(route.removeLine - 1, 4);
                 // Re-join the file code together
                 fileLines = fileLines.join('\n');
                 // Update the router file
@@ -224,8 +225,9 @@ module.exports = {
             /////////////////////////////
             // Destroy PHP Route Index //
             /////////////////////////////
+            var phpPath = path.replace('/*', '');
             if (checks.phpIndexExists) {
-                fs.unlinkSync('../' + path + '/index.php');
+                fs.unlinkSync('../' + phpPath + '/index.php');
             }
             finishStep('phpIndex');
 
@@ -233,7 +235,7 @@ module.exports = {
             // Destroy PHP Route Dir //
             ///////////////////////////
             if (checks.phpFolderExists) {
-                fs.rmdirSync('../' + path + '/');
+                fs.rmdirSync('../' + phpPath + '/');
             }
             finishStep('phpDir');
         }

@@ -1,17 +1,33 @@
-<ul>
-    <li class="nav-item">
-        <a href="/">Link 1</a>
-    </li>
-    <li class="nav-item">
-        <a href="/">Link 2</a>
-    </li>
-    <li class="nav-item">
-        <a href="/">Link 3</a>
-    </li>
-    <li class="nav-item">
-        <a href="/">Link 4</a>
-    </li>
-    <li class="nav-item">
-        <a href="/">Link 5</a>
-    </li>
-</ul>
+{{#if isLoggedIn}}
+    {{!-- Logged In Nav Menu --}}
+    <ul class="nav-menu logged-in">
+        <li class="nav-item">
+            <a href="/">Link 1</a>
+        </li>
+        <li class="nav-item">
+            <a href="/">Link 2</a>
+        </li>
+        <li class="nav-item">
+            <a href="/">Link 3</a>
+        </li>
+        <li class="nav-item">
+            <a href="/">Link 4</a>
+        </li>
+        <li class="nav-item">
+            <a href="/">Link 5</a>
+        </li>
+    </ul>
+{{else}}
+    {{!-- Logged Out Nav Menu --}}
+    <ul class="nav-menu logged-out">
+        <li class="nav-item">
+            <a href="/">Link 1</a>
+        </li>
+        <li class="nav-item">
+            <a href="/">Link 2</a>
+        </li>
+        <li class="nav-item">
+            <a href="/">Link 3</a>
+        </li>
+    </ul>
+{{/if}}

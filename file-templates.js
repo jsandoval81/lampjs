@@ -40,9 +40,10 @@ module.exports = {
                "        $this->basePageTitle = 'App';\n",
 
     // Route code template (for router.js)
-    route: "case '@@path@@':\n" +
-           "@@indent@@    view = app.@@view@@;\n" +
-           "@@indent@@    break;\n",
+    route: "{\n" +
+           "@@indent@@    path: '@@path@@',\n" +
+           "@@indent@@    view: app.@@view@@\n" +
+           "@@indent@@},\n",
 
     // View code template
     view: "/**" +
@@ -91,10 +92,10 @@ module.exports = {
           "\n",
 
     // Handlebars code template
-    handlebars: "{{> app-header appHeaderData}}\n" +
+    handlebars: "{{> app-header isLoggedIn=false}}\n" +
                 "\n" +
                 "<div class=\"container\">\n" +
-                "    @@display@@\n" +
+                "    <h1>@@display@@</h1>\n" +
                 "</div>\n" +
                 "\n" +
                 "{{> app-footer}}",
