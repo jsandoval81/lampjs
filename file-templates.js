@@ -46,8 +46,8 @@ module.exports = {
            "@@indent@@},\n",
 
     // View code template
-    view: "/**" +
-          "* @copyright 2016 InspiringApps\n" +
+    view: "/**\n" +
+          "* @copyright 2017 InspiringApps\n" +
           "* @link http://www.inspiringapps.com\n" +
           "*\n" +
           "* @TODO\n" +
