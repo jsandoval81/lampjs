@@ -1,6 +1,6 @@
 {
   "name": "lampjs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A CLI to help scaffold views in the IA LAMP JS frontend",
   "main": "index.js",
   "bin": {
